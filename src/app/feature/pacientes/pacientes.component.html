@@ -1,0 +1,42 @@
+
+<div class="container d-flex flex-column">
+    <h2>Información de los pacientes</h2>
+    <div class="d-flex flex-row gap-3 ">
+        <input class="form-control" type="text">
+        <button class="btn btn-primary">Buscar</button>
+        <button class="btn">Edad</button>
+        <button class="btn">Nombre</button>
+    </div>
+
+    <div class="mt-4 card">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Identificación</th>
+              <th>Nombre</th>
+              <th>Edad</th>
+              <th>Ingreso</th>
+              <th>Ver</th>  
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- Puedes agregar filas con datos aquí -->
+
+            <tr *ngFor="let paciente of pacientesLista">
+              <td>{{ paciente.idPaciente }}</td>
+              <td>{{ paciente.nombre }}</td>
+              <td>{{ paciente.edad }}</td>
+              <td>Viernes 23 de enero 2024</td> 
+              <td><button class="btn btn-info" [routerLink]="['/paciente', paciente.idPaciente]" >Ver</button></td>
+              <td><button class="btn btn-danger">Eliminar</button></td>
+            </tr>
+            
+            <!-- Puedes agregar más filas según sea necesario -->
+          </tbody>
+
+        </table>
+      </div>
+
+</div>

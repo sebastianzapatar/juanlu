@@ -1,0 +1,41 @@
+
+  .contenedor{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+
+    app-side-bar {
+      display: block;
+      width: 200px;
+      height: 100%;
+      background-color: rgb(124, 152, 168);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+
+    }
+
+    #contenedorMain{
+      flex-grow: 1;
+      margin-left: -200px;
+      transition: margin-left 0.3s ease-in-out;
+
+      .content{
+        padding: 2%
+      }
+      
+    }
+
+    &.sidebarActive{
+      app-side-bar{
+        transform: translateX(0);
+      }
+
+      #contenedorMain{
+        margin-left:0;
+      }
+    }
+
+    
+  }
+  
+ 

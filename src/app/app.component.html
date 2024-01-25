@@ -1,0 +1,16 @@
+
+<div id="contenedor" class="contenedor" [ngClass]="{sidebarActive: sidebarActiveStatus}">
+  
+  <app-side-bar ></app-side-bar>
+   
+  <div id="contenedorMain">
+<app-header (toggleSidebar)="sidebarActiveStatus= !sidebarActiveStatus" [sidebarActiveStatus]="sidebarActiveStatus"></app-header>
+  
+<div class="content">
+  <router-outlet ></router-outlet>
+</div>
+
+ 
+
+
+

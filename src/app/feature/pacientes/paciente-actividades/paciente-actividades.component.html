@@ -1,0 +1,58 @@
+
+<h2 class="container mt-4">Actividades asignadas a {{paciente?.nombre}}</h2>
+
+<div class="container mt-4 card">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Hora Recomendada</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí iterar sobre tus actividades y mostrar cada fila -->
+        <tr *ngFor="let actividad of actividadesPaciente">
+          <td>{{ actividad.idActividad }}</td>
+          <td>{{ actividad.nombre }}</td>
+          <td>{{ actividad.descripcion }}</td>
+          <td>{{ actividad.hora }}</td>
+          <td>
+            <button (click)="eliminarActividad(actividad.idActividad)" class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="container mt-4">Todas las actividades</h2>
+
+  <div class="container mt-4 card">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Hora Recomendada</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí iterar sobre tus actividades y mostrar cada fila -->
+        <tr *ngFor="let actividad of actividades">
+          <td>{{ actividad.idActividad }}</td>
+          <td>{{ actividad.nombre }}</td>
+          <td>{{ actividad.descripcion }}</td>
+          <td>{{ actividad.hora }}</td>
+          <td>
+            <button (click)="agregarActividad(actividad.idActividad,pacienteId)" class="btn btn-success">Agregar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
