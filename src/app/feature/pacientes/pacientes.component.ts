@@ -5,14 +5,15 @@ import { HttpClient } from '@angular/common/http';
 import { Paciente } from './service/paciente';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { PacienteAgregarComponent } from "./paciente-agregar/paciente-agregar.component";
 
 @Component({
     selector: 'app-pacientes',
     standalone: true,
     templateUrl: './pacientes.component.html',
     styleUrl: './pacientes.component.css',
-    imports: [CommonModule,PacienteItemComponent,RouterModule ],
-    providers:[HttpClient]
+    providers: [HttpClient],
+    imports: [CommonModule, PacienteItemComponent, RouterModule, PacienteAgregarComponent]
 })
 
 export class PacientesComponent implements OnInit {

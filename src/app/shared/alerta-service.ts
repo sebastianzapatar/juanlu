@@ -12,6 +12,8 @@ export class AlertaService {
       icon: 'success',
       title: 'Listo',
       text: mensaje,
+    }).then(function(){
+      window.location.reload()
     });
   }
 
@@ -26,8 +28,19 @@ export class AlertaService {
   alertaConfirmacion(mensaje: string): void {
     Swal.fire({
       icon: 'warning',
-      title: 'confirmación',
+      title: 'Confirmación',
       text: mensaje,
+      showCancelButton: true,  // Habilita el botón de Cancelar
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario hace clic en OK
+        window.location.reload();
+      } else {
+        // Si el usuario hace clic en Cancelar
+        // No necesitas hacer nada aquí, ya que no se especifica ninguna acción
+      }
     });
   }
 }

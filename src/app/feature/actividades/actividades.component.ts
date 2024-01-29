@@ -4,15 +4,16 @@ import { ActividadService } from './service/actividad.service';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ActividadesAgregarComponent } from "./actividades-agregar/actividades-agregar.component";
 
 @Component({
-  selector: 'app-actividades',
-  standalone: true,
-  imports: [CommonModule,
-    FormsModule,
-    ReactiveFormsModule],
-  templateUrl: './actividades.component.html',
-  styleUrl: './actividades.component.css'
+    selector: 'app-actividades',
+    standalone: true,
+    templateUrl: './actividades.component.html',
+    styleUrl: './actividades.component.css',
+    imports: [CommonModule,
+        FormsModule,
+        ReactiveFormsModule, ActividadesAgregarComponent]
 })
 export class ActividadesComponent implements OnInit {
 

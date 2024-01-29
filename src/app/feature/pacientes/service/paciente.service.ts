@@ -29,6 +29,9 @@ export class PacienteService {
     const url = `${this.apiUrl}/${id}`;
     return this.httpClient.delete<Paciente>(url);
   }
+  save(data: any): Observable<Paciente> {
+    return this.httpClient.post<Paciente>(this.apiUrl, data);
+  }
 }
 
 
