@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Paciente } from '../service/paciente';
 import { PacienteService } from '../service/paciente.service';
-import { GeriatriaService } from '../../../shared/geriatria.service';
 import { Actividad } from '../../actividades/service/actividad';
 import { CommonModule } from '@angular/common';
 import { ActividadService } from '../../actividades/service/actividad.service';

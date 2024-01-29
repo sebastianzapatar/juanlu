@@ -7,6 +7,7 @@ import { Paciente } from '../service/paciente';
 import { Actividad } from '../../actividades/service/actividad';
 import { PacienteActividadService } from '../../../shared/paciente-actividad.service';
 import { ActividadPaciente } from '../../../shared/paciente-actividad';
+import { AlertaService } from '../../../shared/alerta-service';
 
 @Component({
   selector: 'app-paciente-actividades',
@@ -23,7 +24,8 @@ export class PacienteActividadesComponent {
   pacienteId:string
   route: ActivatedRoute = inject(ActivatedRoute);
 
-  constructor(private pacienteService: PacienteService, private actividadService:ActividadService,private pacienteActividadService:PacienteActividadService) {
+  constructor(private pacienteService: PacienteService, private actividadService:ActividadService,private pacienteActividadService:PacienteActividadService,
+    private alertaService:AlertaService) {
     this.pacienteId = parseInt(this.route.snapshot.params['id'], 10).toString();
     
   }
@@ -75,6 +77,10 @@ export class PacienteActividadesComponent {
     } else {
       console.error('Error: No se pudo obtener el ID del paciente.');
     }
+    this.alertaService.alertaSuccess("Listo pa")
+    
+    
+    
   }
 
       agregarActividad(idActividad: number, idPaciente: string) {
@@ -95,5 +101,7 @@ export class PacienteActividadesComponent {
             console.error('Error al agregar la actividad:', error);
           }
         );
+        this.alertaService.alertaSuccess("Listo pa")
+        
       }
 }
