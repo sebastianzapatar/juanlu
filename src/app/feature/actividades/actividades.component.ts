@@ -5,15 +5,16 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActividadesAgregarComponent } from "./actividades-agregar/actividades-agregar.component";
+import { ActividadesAgregarCategoriaComponent } from "./actividades-agregar-categoria/actividades-agregar-categoria.component";
 
 @Component({
     selector: 'app-actividades',
     standalone: true,
     templateUrl: './actividades.component.html',
-    styleUrl: './actividades.component.css',
+    styleUrl: './actividades.component.scss',
     imports: [CommonModule,
         FormsModule,
-        ReactiveFormsModule, ActividadesAgregarComponent]
+        ReactiveFormsModule, ActividadesAgregarComponent, ActividadesAgregarCategoriaComponent]
 })
 export class ActividadesComponent implements OnInit {
 
@@ -49,13 +50,7 @@ export class ActividadesComponent implements OnInit {
       };
 
       console.log("Objeto: ",actividadData)
-
-      /*const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json'
-        })
-      };*/
-  
+ 
       this.actividadService.save(actividadData).subscribe(
         (actividad: Actividad) => {
           console.log('Actividad agregada exitosamente:', actividad);
@@ -67,20 +62,48 @@ export class ActividadesComponent implements OnInit {
       );
 
 
-      /*this.actividadService.save(actividadData).subscribe(
-        (actividad: Actividad) => {
-          console.log('Actividad agregada exitosamente:', actividad);
-        },
-        error => {
-          console.error('Error al agregar la actividad:', error);
-        }
-      );*/
-
-
       console.log('Actividad creada:', actividadData);
     } else {
       console.log('Formulario no válido');
     }
   }
+
+
+  actividadSeleccionada: Actividad | null = null
+/////////////////
+  abrirModalEditar(actividad: Actividad) {
+    this.actividadSeleccionada = actividad;
+    // Llenar el formulario con los datos de la actividad seleccionada
+    this.actividadForm.setValue({
+      nombre: actividad.nombre,
+      descripcion: actividad.descripcion,
+      hora: actividad.hora || '',
+      url: actividad.url
+    });
+  }
+
+  // Método para guardar los cambios en la actividad seleccionada
+  guardarCambios() {
+    if (this.actividadForm.valid && this.actividadSeleccionada) {
+      const actividadData = {
+        nombre: this.actividadForm.value.nombre,
+        descripcion: this.actividadForm.value.descripcion,
+        hora: this.actividadForm.value.hora || null,
+        url: this.actividadForm.value.url
+      };
+      console.log("Objeto: ", actividadData)
+
+      // Actualizar la actividad seleccionada con los nuevos datos
+      Object.assign(this.actividadSeleccionada, actividadData);
+
+      // Aquí puedes llamar al servicio para guardar los cambios si es necesario
+
+      console.log('Cambios guardados:', this.actividadSeleccionada);
+    } else {
+      console.log('Formulario no válido');
+    }
+  }
+
+  
 
 }

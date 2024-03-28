@@ -11,7 +11,7 @@ import { PacienteAgregarComponent } from "./paciente-agregar/paciente-agregar.co
     selector: 'app-pacientes',
     standalone: true,
     templateUrl: './pacientes.component.html',
-    styleUrl: './pacientes.component.css',
+    styleUrl: './pacientes.component.scss',
     providers: [HttpClient],
     imports: [CommonModule, PacienteItemComponent, RouterModule, PacienteAgregarComponent]
 })

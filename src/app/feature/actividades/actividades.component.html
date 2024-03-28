@@ -1,5 +1,7 @@
-<div></div>
-<h2 class="container mt-4">Todas las actividades</h2>
+<div class="container">
+ 
+  <h1 class="fs-1">Actividades de prevención</h1>
+  <h2 class="container mt-4">Todas las actividades</h2>
 
   <div class="container mt-4 card">
     <table class="table">
@@ -15,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Aquí iterar sobre tus actividades y mostrar cada fila -->
+        
         <tr *ngFor="let actividad of actividades">
           <td>{{ actividad.idActividad }}</td>
           <td>{{ actividad.nombre }}</td>
@@ -24,15 +26,71 @@
           <td>{{ actividad.url }}</td>
           <td>{{ actividad.hora }}</td>
           <td>
-            <button class="btn btn-primary">Editar</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="abrirModalEditar(actividad)">Editar</button>
           </td>
         </tr>
+
+        
+  
       </tbody>
     </table>
   </div>
 
-  <h2 class="container mt-4">Agregar una nueva actividad</h2>
+  
+  <div class="d-flex flex-row gap-3 mt-4 ">
 
-  <app-actividades-agregar></app-actividades-agregar>
+    <div class="w-75">
+      <h2>Agregar una nueva actividad</h2>
+      <app-actividades-agregar ></app-actividades-agregar>
+    </div>
+
+    <div>
+      <h2>Modifica las categorias</h2>
+      <app-actividades-agregar-categoria></app-actividades-agregar-categoria>
+    </div>
+ 
+  </div>
+
+  <!-- Contenido del modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar actividad</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="actividadForm">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre" [placeholder]="actividadSeleccionada?.nombre">
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descripcion" formControlName="descripcion" [placeholder]="actividadSeleccionada?.descripcion">
+          </div>
+          <div class="mb-3">
+            <label for="hora" class="form-label">Hora</label>
+            <input type="text" class="form-control" id="hora" formControlName="hora" [placeholder]="actividadSeleccionada?.hora">
+          </div>
+          <div class="mb-3">
+            <label for="url" class="form-label">URL</label>
+            <input type="text" class="form-control" id="url" formControlName="url" [placeholder]="actividadSeleccionada?.url">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+</div>
+
+
+
   
  

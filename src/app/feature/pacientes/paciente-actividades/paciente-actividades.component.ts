@@ -77,7 +77,7 @@ export class PacienteActividadesComponent {
     } else {
       console.error('Error: No se pudo obtener el ID del paciente.');
     }
-    this.alertaService.alertaSuccess("Listo pa")
+    this.alertaService.alertaSuccess("Actividad eliminada exitosamente")
     
     
     
@@ -101,7 +101,7 @@ export class PacienteActividadesComponent {
             console.error('Error al agregar la actividad:', error);
           }
         );
-        this.alertaService.alertaSuccess("Listo pa")
+        this.alertaService.alertaSuccess("Actividad agregada exitosamente")
         
       }
 }

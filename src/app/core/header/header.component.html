@@ -1,14 +1,22 @@
-<div id="header">
-    <div id="logo">
-      
-      <img (click)="toggleSidebar.emit()" src="../../../assets/menu.svg" alt="a">
-      
-      VIDA
+<div class="header p-4">
 
+  <div class="container d-flex justify-content-between align-items-center">
+    
+    <div class="opciones">
+
+      <img src="../../../assets/LogoVBlanco.gif" class="header-logo" alt="logo hospital">
+
+      <a [routerLink]="['/pacientes']">Pacientes</a>
+      <a [routerLink]="['/actividades']">Actividades</a>
+      <a [routerLink]="['/informes']">Informes</a>
     </div>
-    <div id="menu">
-      <a href="#">Salir</a>
-      <a href="#">Inicio</a>
+
+    <div class="menu">
+      <a [routerLink]="['/']">Inicio</a>
       <a href="#">HPTU</a>
+      <a href="#">Salir</a>
     </div>
+
   </div>
+
+</div>

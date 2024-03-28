@@ -1,0 +1,46 @@
+.header{
+    
+    background-color: var(--azul-principal);
+    .header-logo{
+      width: 10%;
+    }
+
+    #logo{
+
+      display: flex;
+      gap: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      align-items: center;
+      
+      svg{
+        cursor: pointer;
+      }
+    }
+
+    a{
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      &:hover{
+        color: dodgerblue;
+      }
+    
+    }
+    .opciones{
+      display: flex;
+      gap: 4em;
+      align-items: center;
+      a{
+        font-size:large;
+      }
+    }
+
+    .menu{
+      display: flex;
+      align-items: center;
+      gap:2em;
+      
+     
+    }
+  }

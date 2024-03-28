@@ -8,19 +8,22 @@ Agrega un paciente <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16
     <div class="card card-body">
 
         <form [formGroup]="pacienteForm" (ngSubmit)="agregarPaciente()" >
+            
+              <div class="mb-3">
+                <label for="idPaciente" class="form-label">Identificación</label>
+                <input type="text" class="form-control" id="idPaciente" placeholder="Ingrese Identificación" formControlName="idPaciente">
+            </div>
+            
             <div class="mb-3">
-                <label for="nombre" class="form-label">Identificación</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Ingrese Identificación">
-              </div>
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" formControlName="nombre">
+            </div>
+            
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad:</label>
+                <input type="number" class="form-control" id="edad" placeholder="Ingrese la edad" formControlName="edad">
+            </div>
 
-            <div class="mb-3">
-              <label for="nombre" class="form-label">Nombre:</label>
-              <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre">
-            </div>
-            <div class="mb-3">
-              <label for="edad" class="form-label">Edad:</label>
-              <input type="number" class="form-control" id="edad" placeholder="Ingrese la edad">
-            </div>
            <div class="d-flex flex-row gap-3">
             
             <button type="submit" class="btn btn-success">

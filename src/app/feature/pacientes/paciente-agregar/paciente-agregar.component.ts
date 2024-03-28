@@ -18,7 +18,7 @@ export class PacienteAgregarComponent {
 
   constructor(private pacienteService:PacienteService,private alerta:AlertaService){
     this.pacienteForm = new FormGroup({
-      identificacion: new FormControl('', [Validators.required]),
+      idPaciente: new FormControl('', [Validators.required]),
       nombre: new FormControl('', [Validators.required]),
       edad: new FormControl('', [Validators.required]),
     });
@@ -28,7 +28,7 @@ export class PacienteAgregarComponent {
     if (this.pacienteForm.valid) {
 
       const pacienteData = {
-        identificacion: this.pacienteForm.value.identificacion,
+        idPaciente: this.pacienteForm.value.idPaciente,
         nombre: this.pacienteForm.value.nombre,
         edad: this.pacienteForm.value.edad || null,
       };
@@ -36,17 +36,19 @@ export class PacienteAgregarComponent {
       console.log("Objeto: ",pacienteData)
       this.pacienteService.save(pacienteData).subscribe(
         (actividad: Paciente) => {
+          console.log("Objeto: ",pacienteData)
           this.alerta.alertaSuccess("Paciente agregado satisfactoriamente")
           // Puedes realizar otras operaciones después de agregar la actividad
         },
         error => {
+          console.log("Objeto: ",pacienteData)
           this.alerta.alertaError(error)
         }
       );
 
-
-      console.log('Actividad creada:', pacienteData);
+      
     } else {
+      console.log(this.pacienteForm.errors)
       this.alerta.alertaError("El formulario es invalido")
     }
 

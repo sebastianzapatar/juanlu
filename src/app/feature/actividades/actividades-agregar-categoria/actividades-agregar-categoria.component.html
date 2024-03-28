@@ -1,0 +1,19 @@
+<form (ngSubmit)="agregarCategoria()">
+    <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Nombre categoría..." [(ngModel)]="nombreCategoria" name="nombreCategoria" required>
+      <button class="btn btn-primary" type="submit">Agregar</button>
+    </div>
+  </form>
+
+  <div>
+    
+    <div class="mb-1" *ngFor="let tipo of tipos">
+      <div class="card d-flex flex-row">
+        <div class="card-body container">
+          {{ tipo.nombre }}
+        </div>
+        <button class="btn btn-danger w-25 m-1" (click)="eliminarCategoria(tipo.id)">X</button>
+      </div>
+    </div>
+
+  </div>

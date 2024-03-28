@@ -2,8 +2,8 @@
     <form [formGroup]="actividadForm" (ngSubmit)="crearActividad()">
 
       <label for="tipoActividad">Selecciona un tipo de actividad:</label>
-        <select class="form-select" aria-label="Selecciona" formControlName="tipoActividad">
-            <option *ngFor="let tipo of tipos" [value]="tipo.nombre">{{ tipo.nombre }}</option>
+        <select  class="form-select" aria-label="Selecciona" formControlName="tipoActividad">
+            <option  *ngFor="let tipo of tipos" [value]="tipo.nombre">{{ tipo.nombre }}</option>
         </select>
 
         <div class="form-group">
