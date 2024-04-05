@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertResult } from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +41,17 @@ export class AlertaService {
         // Si el usuario hace clic en Cancelar
         // No necesitas hacer nada aquí, ya que no se especifica ninguna acción
       }
+    });
+  }
+
+  alertaConfirmacionPromesa(mensaje: string): Promise<SweetAlertResult> {
+    return Swal.fire({
+      icon: 'warning',
+      title: 'Confirmación',
+      text: mensaje,
+      showCancelButton: true,
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cancelar',
     });
   }
 }
