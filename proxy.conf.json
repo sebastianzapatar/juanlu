@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://ec2-44-192-68-231.compute-1.amazonaws.com:8080/api",
+      "target": "https://ec2-44-192-68-231.compute-1.amazonaws.com:8080/api",
       "pathRewrite": {
         "^/api": ""
       }
