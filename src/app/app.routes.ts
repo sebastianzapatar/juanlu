@@ -8,6 +8,7 @@ import { InformesComponent } from './feature/informes/informes.component';
 
 export const routes: Routes = [
   { path: 'pacientes', component: PacientesComponent },
+  { path: '', redirectTo: '/pacientes', pathMatch: 'full'},
   { path: 'actividades', component: ActividadesComponent },
   { path: 'informes', component: InformesComponent },
   
