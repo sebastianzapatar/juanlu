@@ -1,0 +1,8 @@
+<div class="card mb-3">
+    <div class="card-body">
+      <p class="card-text">Actividad: {{ nombreActividad }}</p>
+      <h5 class="card-title" [ngClass]="getColorClass()">Estado: {{ registro.estado }}</h5>
+      <p class="card-text">Detalles del registro: {{ registro.detallesRegistro }}</p>
+      
+    </div>
+</div>

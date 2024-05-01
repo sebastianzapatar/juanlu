@@ -1,12 +1,10 @@
-<div class="container">
-    <h1 class="fs-1">Informes</h1>
-    <img src="https://www.probabilidadyestadistica.net/wp-content/uploads/2022/05/ejemplo-de-diagrama-de-barras-768x465.png" alt="">
-</div>
+
 
 <div class="container">
-    <h2>Metricas de actividades</h2>
-</div>
-
-<div class="container">
-    <h2>Metricas de pacientes</h2>
+  <h2>Listado de Registros</h2>
+  <input type="text" placeholder="Ingrese algún dato">
+  <button (click)="cargarRegistros()">Cargar Registros</button>
+<div *ngFor="let registro of listadoRegistros">
+    <app-registro [registro]="registro"></app-registro>
+  </div>
 </div>
