@@ -1,10 +1,34 @@
-
-
 <div class="container">
   <h2>Listado de Registros</h2>
-  <input type="text" placeholder="Ingrese algún dato">
-  <button (click)="cargarRegistros()">Cargar Registros</button>
-<div *ngFor="let registro of listadoRegistros">
-    <app-registro [registro]="registro"></app-registro>
+  <div class="form-group">
+    <label for="pacienteInput">Buscar Paciente:</label>
+    <input type="text" class="form-control" id="pacienteInput" [(ngModel)]="pacienteId" (input)="cargarRegistros()">
+  </div>
+  <div class="form-group">
+    <label for="actividadInput">Buscar Actividad:</label>
+    <input type="text" class="form-control" id="actividadInput" [(ngModel)]="actividadId" (input)="cargarRegistros()">
+  </div>
+  <button class="btn btn-primary mb-2" (click)="cargarRegistros()">Cargar Registros</button>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Paciente</th>
+          <th>Actividad</th>
+          <th>Estado</th>
+          <th>Comentario</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let registro of listadoRegistros" [ngClass]="{'registro-realizado': esRegistroRealizado(registro), 'registro-no-realizado': !esRegistroRealizado(registro)}">
+          <td>{{ registro.idPaciente }}</td> <!-- Aquí mostrar el nombre del paciente -->
+          <td>{{ registro.idActividad }}</td> <!-- Aquí mostrar el nombre de la actividad -->
+          <td>{{ registro.estado }}</td>
+          <td>{{ registro.detallesRegistro }}</td>
+          <td>{{ registro.fecha }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -1,0 +1,7 @@
+.registro-realizado {
+    border: 2px solid green;
+  }
+  
+  .registro-no-realizado {
+    border: 2px solid yellow;
+  }
