@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class PacienteActividadService {
 
   
-  private apiUrl = '/api/pacienteactividad';
+  private apiUrl = 'http://34.148.160.13:8082/api/pacienteactividad';
 
 
   constructor(private httpClient: HttpClient) { }
